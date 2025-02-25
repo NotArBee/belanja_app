@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/common/styles/spacing_styles_signup_screen.dart';
+import 'package:t_store/common/styles/spacing_styles.dart';
 import 'package:t_store/features/authentication/screen/signup/widgets/signup_form.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -16,7 +16,7 @@ class SignupScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SingleChildScrollView(
           child: Padding(
-        padding: TSpacingStyleSignupScreen.paddingWithAppBarHeight,
+        padding: TSpacingStyle.paddingWithAppBarHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
