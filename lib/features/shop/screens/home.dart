@@ -3,12 +3,14 @@ import 'package:t_store/common/widgets/products/products_cards/product_card_vert
 import 'package:t_store/features/shop/screens/widgets/home_appbar.dart';
 import 'package:t_store/features/shop/screens/widgets/home_categories.dart';
 import 'package:t_store/features/shop/screens/widgets/promo_slider.dart';
+import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
 
 import '../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../common/widgets/custom_shapes/containers/search_container.dart';
+import '../../../common/widgets/layouts/grid_layout.dart';
 import '../../../common/widgets/texts/section_heading.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,12 +18,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             /// header
-            TPrimaryHeaderContainer(
+            const TPrimaryHeaderContainer(
                 child: Column(
               children: [
                 /// appbar
@@ -61,23 +63,32 @@ class HomeScreen extends StatelessWidget {
 
             /// Body
             Padding(
-                padding: EdgeInsets.all(TSizes.defaultSpace),
+                padding: const EdgeInsets.all(TSizes.defaultSpace),
                 child: Column(
                   children: [
                     /// -- promo slider --
-                    TPromoSlider(
+                    const TPromoSlider(
                       banners: [
                         TImages.promoBanner1,
                         TImages.promoBanner2,
                         TImages.promoBanner3
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: TSizes.spaceBtwSections,
                     ),
 
+                    /// heaading
+                    TSectionHeading(
+                      title: 'Popular Products',
+                      onPressed: () {},
+                    ),
+
                     /// -- popular products --
-                    TProductCardVertical()
+                    TGridLayout(
+                      itemCount: 2,
+                      itemBuilder: (_, index) => const TProductCardVertical(),
+                    )
                   ],
                 )),
           ],
